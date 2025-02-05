@@ -5,37 +5,31 @@ This guide will walk you through generating an SSH key and using it to authentic
 ## 1. Generate a New SSH Key
 If you don't have an existing key, generate a new one:
 ![Generate Key Pair](<images/Screenshot 2025-02-04 154404 - ssh 1.png>)
-```sh
-ssh-keygen -t ed25519 -C "your_email@example.com"
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "amirbile@hotmail.co.uk"
 ```
 
-If `ed25519` is not supported, use:
-
-```sh
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-```
-
-- When prompted, press **Enter** to accept the default file location.
+- When prompted, press **Enter** to accept the default file location and enter your key name `amir-gt-key`
 - Set a passphrase for added security (optional).
 
 ## 3. Add Your SSH Key to the SSH Agent
 Ensure the SSH agent is running:
 
-```sh
+```bash
 eval "$(ssh-agent -s)"
 ```
 
 Then add your key:
 
-```sh
+```bash
 ssh-add ~/.ssh/keyname
 ```
-(Use `.pub`)
 
 ## 4. Copy Your SSH Key
-Copy the public key to your clipboard:
+Copy the public key to your clipboard, pub being your public key:
 
-```sh
+```bash
 cat ~/.ssh/keyname.pub
 ```
 
@@ -51,7 +45,7 @@ Copy the output and proceed to GitHub.
 Verify your connection to GitHub:
 ![SSH - T confirmation](<images/Screenshot 2025-02-04 154630.png>)
 
-```sh
+```bash
 ssh -T git@github.com
 ```
 
@@ -66,7 +60,7 @@ Hi username! You've successfully authenticated, but GitHub does not provide shel
 
 To ensure Git uses SSH instead of HTTPS:
 
-```sh
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
 git remote set-url origin git@github.com:username/repository.git
