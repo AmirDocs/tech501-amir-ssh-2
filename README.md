@@ -54,6 +54,45 @@ If successful, you'll see:
 ```
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+## Initialize a New Git Repository
+
+Navigate to your project directory:
+
+```
+cd /path/to/your/project
+```
+
+Initialize a new Git repository:
+
+```
+git init
+```
+
+Add your remote repository:
+
+```
+git remote add origin git@github.com:Amirdocs/tech-test-ssh-2.git
+```
+
+Add files and commit:
+
+```
+git add .
+git commit -m "Initial commit"
+```
+
+Push to GitHub:
+
+```
+git push -u origin main
+```
+
+If main doesn't exist yet, rename the default branch:
+
+```
+git branch -M main
+git push -u origin main
+```
 
 ## 7. Configure Git to Use SSH (Optional)
 ![Git repo](<images/Screenshot 2025-02-04 155233.png>)
